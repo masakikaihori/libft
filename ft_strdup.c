@@ -16,21 +16,20 @@ char	*ft_strdup(const char *s1)
 {
 	char	*copy;
 	size_t	t;
+	size_t	u;
 
 	t = 0;
+	u = 0;
 	while (s1[t] != '\0')
 		t++;
 	copy = (char *)malloc(sizeof(char) * (t + 1));
 	if (!copy)
 		return (NULL);
 	copy[t] = '\0';
-	if (t == 0)
-		return (copy);
-	while (--t >= 0)
+	while (u < t)
 	{
-		copy[t] = s1[t];
-		if (t == 0)
-			break ;
+		copy[u] = s1[u];
+		u++;
 	}
 	return (copy);
 }
