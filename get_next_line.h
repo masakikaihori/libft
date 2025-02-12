@@ -31,4 +31,6 @@ size_t	gnl_strlen(char *str);
 char	*get_next_line(int fd);
 char	*ft_strjoins(char *old, char *tmp);
 
+void	*debugy_malloc(size_t size);
+
 #endif

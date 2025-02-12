@@ -23,6 +23,11 @@ char	*leftover(char *str, char *new_line)
 	if (newline_size == 0)
 		return (ft_free(str));
 	size = gnl_strlen(str) - newline_size;
+	if (size == 0)
+	{
+		free(str);
+		return (NULL);
+	}
 	new = (char *)malloc(sizeof(char) * (size + 1));
 	if (!new)
 		return (ft_free(str));
@@ -66,13 +71,13 @@ char	*read_file(int fd, char *old, bool *eof)
 	if (!tmp)
 		return (ft_free(old));
 	byte = read(fd, tmp, BUFFER_SIZE);
-	tmp[byte] = '\0';
 	if (byte == -1)
 	{
 		ft_free(old);
 		ft_free(tmp);
 		return (NULL);
 	}
+	tmp[byte] = '\0';
 	if (byte == 0)
 		*eof = true;
 	new = ft_strjoins(old, tmp);
@@ -103,6 +108,17 @@ char	*get_next_line(int fd)
 	new_line = get_new_line(str);
 	str = leftover(str, new_line);
 	return (new_line);
+}
+
+void	*debugy_malloc(size_t size)
+{
+	void	*ptr;
+
+	ptr = malloc(size);
+	if (!ptr)
+		return (NULL);
+	printf("malloc : %p\n", ptr);
+	return (ptr);
 }
 
 // int	main(void)
