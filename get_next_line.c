@@ -92,11 +92,12 @@ char	*read_file(int fd, char *old, bool *eof)
 
 char	*get_next_line(int fd)
 {
-	static char	*str;
+	char		*str;
 	char		*new_line;
 	bool		eof;
 
 	eof = false;
+	str = NULL;
 	if (BUFFER_SIZE < 1 || BUFFER_SIZE > __SIZE_MAX__ - 1)
 		return (NULL);
 	while ((!str || !have_newline(str)) && !eof)
