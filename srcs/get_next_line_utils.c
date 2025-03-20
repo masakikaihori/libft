@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkaihori <nana7hachi89gmail.com>           +#+  +:+       +#+        */
+/*   By: mkaihori <mkaihori@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 18:23:03 by mkaihori          #+#    #+#             */
-/*   Updated: 2024/12/30 23:26:04 by mkaihori         ###   ########.fr       */
+/*   Updated: 2025/03/20 16:07:30 by mkaihori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*ft_strjoins(char *old, char *tmp)
 	size_t	i;
 	size_t	j;
 
-	new = (char *)malloc(sizeof(char) * (gnl_strlen(old) + gnl_strlen(tmp) + 1));
+	new = (char *)malloc(gnl_strlen(old) + gnl_strlen(tmp) + 1);
 	if (!new)
 	{
 		ft_free(old);
